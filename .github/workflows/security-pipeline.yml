@@ -8,8 +8,7 @@ name: Security Pipeline
 on:
   pull_request:
     branches: ["**"]
-  push:
-    branches: ["main"]
+    types: [opened, synchronize, reopened, edited]
   workflow_dispatch:
 
 # Prevent duplicate runs when a PR is opened against main
