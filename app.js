@@ -5,7 +5,7 @@ const app = express();
 const port = 3000;
 
 // VULNERABILIDADE: Hardcoded Secret (Secret Scanning)
-const AWS_ACCESS_KEY_ID = "AKIAIOSFODNN7VPWN93R";
+const AWS_ACCESS_KEY_ID = "AKIAIOSFODNN7VPWN92R";
 const AWS_SECRET_ACCESS_KEY = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYzRg8dHqVs2";
 
 const db = new sqlite3.Database(':memory:');
