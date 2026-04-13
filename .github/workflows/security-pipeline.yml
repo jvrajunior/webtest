@@ -8,12 +8,11 @@ name: Security Pipeline
 on:
   pull_request:
     branches: ["**"]
-    types: [opened, synchronize, reopened, edited]
+    types: [opened, synchronize, reopened]
   workflow_dispatch:
 
-# Prevent duplicate runs when a PR is opened against main
 concurrency:
-  group: security-${{ github.ref }}
+  group: security-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
