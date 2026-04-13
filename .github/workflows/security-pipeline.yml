@@ -19,7 +19,7 @@ concurrency:
 jobs:
 
   security-scan:
-    uses: jvrajunior/appsec-pipeline/.github/workflows/pipeline-orchestrator.yml@main
+    uses: jvrajunior/appsec-pipeline/.github/workflows/pipeline-orchestrator.yml@master
     secrets: inherit
     with:
       mobile: false
