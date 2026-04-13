@@ -49,6 +49,20 @@ app.get('/merge', (req, res) => {
     res.json(obj);
 });
 
+// VULNERABILIDADE CRÍTICA: Command Injection (SAST)
+const { exec } = require('child_process');
+app.get('/ping', (req, res) => {
+  const host = req.query.host;
+  // O input do usuário é passado diretamente ao shell sem sanitização
+  exec(`ping -c 1 ${host}`, (err, stdout, stderr) => {
+    if (err) {
+      res.status(500).send(stderr);
+    } else {
+      res.send(`<pre>${stdout}</pre>`);
+    }
+  });
+});
+
 app.listen(port, () => {
   console.log(`App rodando em http://localhost:${port}`);
 });
