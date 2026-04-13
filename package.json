@@ -1,0 +1,14 @@
+{
+  "name": "vulnerable-node-app",
+  "version": "1.0.0",
+  "description": "App para testes de CI/CD",
+  "main": "app.js",
+  "dependencies": {
+    "express": "4.16.0",
+    "lodash": "4.17.4",
+    "sqlite3": "^5.0.0"
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}
