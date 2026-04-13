@@ -1,0 +1,26 @@
+# ──────────────────────────────────────────────────────────────────────────
+# Caller Workflow — Copy this file to .github/workflows/security.yml
+# in any repository that wants to use the centralized AppSec pipeline.
+# ──────────────────────────────────────────────────────────────────────────
+
+name: Security Pipeline
+
+on:
+  pull_request:
+    branches: ["**"]
+  push:
+    branches: ["main"]
+
+# Prevent duplicate runs when a PR is opened against main
+concurrency:
+  group: security-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+
+  security-scan:
+    uses: jvrajunior/appsec-pipeline/.github/workflows/pipeline-orchestrator.yml@main
+    secrets: inherit
+    with:
+      mobile: false
+  
