@@ -1,7 +1,7 @@
 {
   "name": "vulnerable-node-app",
   "version": "1.0.0",
-  "description": "App para testes de CI/CD",
+  "description": "App testes de CI/CD",
   "main": "app.js",
   "dependencies": {
     "express": "4.16.0",
